@@ -1,0 +1,166 @@
+body {
+  background: #1e1e1e; /* fundo escuro como o VS Code */
+  color: #dcdcdc; /* texto claro */
+  font-family: 'Source Code Pro', monospace; /* fonte monoespaçada */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #252526; /* cor do fundo do header, semelhante ao VS Code */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #444; /* borda sutil no fundo */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #569cd6; /* azul claro, similar ao VS Code */
+}
+
+.btn-group a {
+  margin-left: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-btn {
+  background-color: #61afef; /* cor de destaque semelhante ao VS Code */
+  color: #1e1e1e;
+}
+
+.secondary-btn {
+  border: 2px solid #61afef;
+  color: #61afef;
+  background: none;
+}
+
+.timer {
+  background: #d16969; /* alerta vermelho como no VS Code */
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero img {
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+
+.section {
+  padding: 4rem 2rem;
+  max-width: 960px;
+  margin: auto;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 0.5rem 0;
+}
+
+/* Wrapper para posicionar o botão ao lado do testimonial */
+.testimonial-wrapper {
+  background: #333;
+  border-left: 4px solid #61afef;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.ver-depoimento {
+  display: none;
+  background-color: #61afef;
+  color: #1e1e1e;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.testimonial {
+  color: #dcdcdc;
+  flex: 1;
+  text-align: left;
+  margin-right: 1rem;
+}
+
+/* Aparece ao passar o mouse na caixinha */
+.testimonial-wrapper:hover .ver-depoimento {
+  display: inline-block;
+}
+
+/* Lightbox flutuante */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
+footer {
+  background: #252526;
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+footer a {
+  color: #569cd6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

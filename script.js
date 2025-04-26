@@ -1,16 +1,4 @@
 // 1️⃣ Timer que persiste com localStorage
-(function detectDevice() {
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
-  if (/android/i.test(ua)) {
-    document.body.classList.add('device-mobile');
-  } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-    document.body.classList.add('device-mobile');
-  } else {
-    document.body.classList.add('device-desktop');
-  }
-})();
-
-// ⏱️ Timer que persiste com localStorage
 function startCountdown(duration) {
   const countdownElement = document.getElementById("countdown");
   const storageKey = "timerEndTime";
@@ -22,7 +10,7 @@ function startCountdown(duration) {
     endTime = now + duration * 1000;
     localStorage.setItem(storageKey, endTime);
   } else {
-    endTime = parseInt(endTime, 10);
+    endTime = parseInt(endTime);
   }
 
   function updateCountdown() {
@@ -51,23 +39,29 @@ function startCountdown(duration) {
 }
 
 // 2️⃣ Executa o timer ao carregar a página
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', () => {
   const twentyFourHoursInSeconds = 60 * 60 * 24;
   startCountdown(twentyFourHoursInSeconds);
-};
 
-// 3️⃣ Lightbox dos depoimentos
-document.querySelectorAll('.ver-depoimento').forEach((button, index) => {
-  button.addEventListener('click', () => {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+  // 3️⃣ Lightbox dos depoimentos
+  document.querySelectorAll('.ver-depoimento').forEach((button, index) => {
+    button.addEventListener('click', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
 
-    const imageSources = ['img1.png', 'depoimento-3.jpg', 'depoimento-3.jpeg', 'depoimento-4.jpg'];
-    lightboxImg.src = imageSources[index];
-    lightbox.classList.remove('hidden');
+      const imageSources = [
+        'img1.png', 
+        'depoimento-3.jpg', 
+        'depoimento-3.jpeg', 
+        'depoimento-4.jpg'
+      ];
+
+      lightboxImg.src = imageSources[index] || 'img1.png';
+      lightbox.classList.remove('hidden');
+    });
   });
-});
 
-document.querySelector('.close-btn').addEventListener('click', () => {
-  document.getElementById('lightbox').classList.add('hidden');
+  document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('lightbox').classList.add('hidden');
+  });
 });

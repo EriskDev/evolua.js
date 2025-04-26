@@ -1,61 +1,40 @@
-/* ===== Configuração Global ===== */
 body {
+  background: #1e1e1e; /* fundo escuro como o VS Code */
+  color: #dcdcdc; /* texto claro */
+  font-family: 'Source Code Pro', monospace; /* fonte monoespaçada */
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  background: #1e1e1e;
-  color: #dcdcdc;
-  font-family: 'Source Code Pro', monospace;
-  transition: all 0.3s ease;
 }
 
-/* ===== Animação do cursor (logo) ===== */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-.caret {
-  animation: blink 1s step-start infinite;
-  color: #dcdcdc;
-}
-
-/* ===== Header / Cabeçalho ===== */
 header {
-  background: #252526;
+  background: #252526; /* cor do fundo do header, semelhante ao VS Code */
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #444; /* borda sutil no fundo */
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #569cd6;
-  white-space: nowrap;
-}
-
-.btn-group {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  color: #569cd6; /* azul claro, similar ao VS Code */
 }
 
 .btn-group a {
+  margin-left: 1rem;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
+  display: inline-block;
 }
 
 .cta-btn {
-  background-color: #61afef;
+  background-color: #61afef; /* cor de destaque semelhante ao VS Code */
   color: #1e1e1e;
 }
 
@@ -65,15 +44,13 @@ header {
   background: none;
 }
 
-/* ===== Temporizador ===== */
 .timer {
-  background: #d16969;
+  background: #d16969; /* alerta vermelho como no VS Code */
   padding: 1rem;
   text-align: center;
   font-weight: bold;
 }
 
-/* ===== Hero Section ===== */
 .hero {
   padding: 4rem 2rem;
   text-align: center;
@@ -84,7 +61,6 @@ header {
   margin-bottom: 2rem;
 }
 
-/* ===== Seções Gerais ===== */
 .section {
   padding: 4rem 2rem;
   max-width: 960px;
@@ -101,7 +77,7 @@ ul li {
   margin: 0.5rem 0;
 }
 
-/* ===== Depoimentos ===== */
+/* Wrapper para posicionar o botão ao lado do testimonial */
 .testimonial-wrapper {
   background: #333;
   border-left: 4px solid #61afef;
@@ -111,13 +87,6 @@ ul li {
   justify-content: space-between;
   align-items: center;
   border-radius: 6px;
-}
-
-.testimonial {
-  color: #dcdcdc;
-  flex: 1;
-  text-align: left;
-  margin-right: 1rem;
 }
 
 .ver-depoimento {
@@ -132,11 +101,19 @@ ul li {
   transition: opacity 0.2s ease;
 }
 
+.testimonial {
+  color: #dcdcdc;
+  flex: 1;
+  text-align: left;
+  margin-right: 1rem;
+}
+
+/* Aparece ao passar o mouse na caixinha */
 .testimonial-wrapper:hover .ver-depoimento {
   display: inline-block;
 }
 
-/* ===== Lightbox ===== */
+/* Lightbox flutuante */
 .lightbox {
   position: fixed;
   top: 0;
@@ -170,7 +147,7 @@ ul li {
   cursor: pointer;
 }
 
-/* ===== Footer ===== */
+
 footer {
   background: #252526;
   text-align: center;
@@ -186,42 +163,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-
-/* ===== Responsividade (Mobile-first) ===== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .btn-group {
-    width: 100%;
-    justify-content: flex-start;
-    margin-top: 1rem;
-  }
-  .hero {
-    padding-top: 3rem;
-  }
-  header, .timer, .hero, .section, footer {
-    padding: 1.5rem;
-    width: 100%;
-  }
-}
-
-/* Desktop ajustes */
-@media (min-width: 769px) {
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: left;
-    padding: 4rem;
-  }
-  .hero img {
-    width: 40%;
-    max-width: 400px;
-  }
-  .hero h1, .hero p, .hero .cta-btn {
-    width: 50%;
-  }
 }

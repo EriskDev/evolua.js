@@ -1,13 +1,64 @@
 body {
-  background: #1e1e1e; /* fundo escuro como o VS Code */
-  color: #dcdcdc; /* texto claro */
-  font-family: 'Source Code Pro', monospace; /* fonte monoespaçada */
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  color: #dcdcdc;
+  font-family: 'Source Code Pro', monospace;
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
+/* Classes adicionadas pela detecção de dispositivo */
+body.device-mobile {
+  flex-direction: column;
+}
+body.device-desktop {
+  flex-direction: row;
+}
+
+/* Animação de cursor no logo */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.caret {
+  animation: blink 1s step-start infinite;
+  color: #dcdcdc;
+}
+
+/* Mobile-first: seção hero centralizada verticalmente */
+@media (max-width: 768px) {
+  header, .timer, .hero, .section, footer {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  .hero {
+    padding-top: 3rem;
+  }
+}
+
+/* Desktop: navbar horizontal, hero em duas colunas */
+@media (min-width: 769px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+    padding: 4rem;
+  }
+  .hero .carousel {
+    width: 40%;
+  }
+  .hero h1, .hero p, .hero .cta-btn {
+    width: 50%;
+  }
+}
+
+
+
 header {
-  background: #252526; /* cor do fundo do header, semelhante ao VS Code */
+  background: #252526;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -15,34 +66,15 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid #444; /* borda sutil no fundo */
+  border-bottom: 1px solid #444;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #569cd6; /* azul claro, similar ao VS Code */
-}
+.logo { font-size: 1.5rem; font-weight: bold; color: #569cd6; }
+.btn-group a { margin-left: 1rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.cta-btn { background-color: #61afef; color: #1e1e1e; }
+.secondary-btn { border: 2px solid #61afef; color: #61afef; background: none; }
+.timer { background: #d16969; padding: 1rem; text-align: center; font-weight: bold; }
 
-.btn-group a {
-  margin-left: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.cta-btn {
-  background-color: #61afef; /* cor de destaque semelhante ao VS Code */
-  color: #1e1e1e;
-}
-
-.secondary-btn {
-  border: 2px solid #61afef;
-  color: #61afef;
-  background: none;
-}
 
 .timer {
   background: #d16969; /* alerta vermelho como no VS Code */

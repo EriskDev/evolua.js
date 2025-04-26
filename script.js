@@ -1,4 +1,16 @@
 // 1️⃣ Timer que persiste com localStorage
+(function detectDevice() {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(ua)) {
+    document.body.classList.add('device-mobile');
+  } else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+    document.body.classList.add('device-mobile');
+  } else {
+    document.body.classList.add('device-desktop');
+  }
+})();
+
+// ⏱️ Timer que persiste com localStorage
 function startCountdown(duration) {
   const countdownElement = document.getElementById("countdown");
   const storageKey = "timerEndTime";
@@ -10,7 +22,7 @@ function startCountdown(duration) {
     endTime = now + duration * 1000;
     localStorage.setItem(storageKey, endTime);
   } else {
-    endTime = parseInt(endTime);
+    endTime = parseInt(endTime, 10);
   }
 
   function updateCountdown() {

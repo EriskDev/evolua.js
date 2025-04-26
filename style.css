@@ -1,17 +1,16 @@
+/* ===== Configuração Global ===== */
 body {
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   background: #1e1e1e;
   color: #dcdcdc;
   font-family: 'Source Code Pro', monospace;
-  margin: 0;
-  padding: 0;
   transition: all 0.3s ease;
 }
 
-
-
-/* Animação de cursor no logo */
+/* ===== Animação do cursor (logo) ===== */
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -21,62 +20,60 @@ body {
   color: #dcdcdc;
 }
 
-/* Mobile-first: seção hero centralizada verticalmente */
-@media (max-width: 768px) {
-  header, .timer, .hero, .section, footer {
-    padding: 1.5rem;
-    width: 100%;
-  }
-  .hero {
-    padding-top: 3rem;
-  }
-}
-
-/* Desktop: navbar horizontal, hero em duas colunas */
-@media (min-width: 769px) {
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: left;
-    padding: 4rem;
-  }
-  .hero .carousel {
-    width: 40%;
-  }
-  .hero h1, .hero p, .hero .cta-btn {
-    width: 50%;
-  }
-}
-
-
-
+/* ===== Header / Cabeçalho ===== */
 header {
   background: #252526;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid #444;
 }
 
-.logo { font-size: 1.5rem; font-weight: bold; color: #569cd6; }
-.btn-group a { margin-left: 1rem; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
-.cta-btn { background-color: #61afef; color: #1e1e1e; }
-.secondary-btn { border: 2px solid #61afef; color: #61afef; background: none; }
-.timer { background: #d16969; padding: 1rem; text-align: center; font-weight: bold; }
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #569cd6;
+  white-space: nowrap;
+}
 
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
 
+.btn-group a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-btn {
+  background-color: #61afef;
+  color: #1e1e1e;
+}
+
+.secondary-btn {
+  border: 2px solid #61afef;
+  color: #61afef;
+  background: none;
+}
+
+/* ===== Temporizador ===== */
 .timer {
-  background: #d16969; /* alerta vermelho como no VS Code */
+  background: #d16969;
   padding: 1rem;
   text-align: center;
   font-weight: bold;
 }
 
+/* ===== Hero Section ===== */
 .hero {
   padding: 4rem 2rem;
   text-align: center;
@@ -87,6 +84,7 @@ header {
   margin-bottom: 2rem;
 }
 
+/* ===== Seções Gerais ===== */
 .section {
   padding: 4rem 2rem;
   max-width: 960px;
@@ -103,7 +101,7 @@ ul li {
   margin: 0.5rem 0;
 }
 
-/* Wrapper para posicionar o botão ao lado do testimonial */
+/* ===== Depoimentos ===== */
 .testimonial-wrapper {
   background: #333;
   border-left: 4px solid #61afef;
@@ -113,6 +111,13 @@ ul li {
   justify-content: space-between;
   align-items: center;
   border-radius: 6px;
+}
+
+.testimonial {
+  color: #dcdcdc;
+  flex: 1;
+  text-align: left;
+  margin-right: 1rem;
 }
 
 .ver-depoimento {
@@ -127,19 +132,11 @@ ul li {
   transition: opacity 0.2s ease;
 }
 
-.testimonial {
-  color: #dcdcdc;
-  flex: 1;
-  text-align: left;
-  margin-right: 1rem;
-}
-
-/* Aparece ao passar o mouse na caixinha */
 .testimonial-wrapper:hover .ver-depoimento {
   display: inline-block;
 }
 
-/* Lightbox flutuante */
+/* ===== Lightbox ===== */
 .lightbox {
   position: fixed;
   top: 0;
@@ -173,7 +170,7 @@ ul li {
   cursor: pointer;
 }
 
-
+/* ===== Footer ===== */
 footer {
   background: #252526;
   text-align: center;
@@ -189,4 +186,42 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* ===== Responsividade (Mobile-first) ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btn-group {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+  .hero {
+    padding-top: 3rem;
+  }
+  header, .timer, .hero, .section, footer {
+    padding: 1.5rem;
+    width: 100%;
+  }
+}
+
+/* Desktop ajustes */
+@media (min-width: 769px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+    padding: 4rem;
+  }
+  .hero img {
+    width: 40%;
+    max-width: 400px;
+  }
+  .hero h1, .hero p, .hero .cta-btn {
+    width: 50%;
+  }
 }

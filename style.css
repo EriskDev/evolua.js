@@ -13,9 +13,7 @@ body {
 body.device-mobile {
   flex-direction: column;
 }
-body.device-desktop {
-  flex-direction: row;
-}
+
 
 /* Animação de cursor no logo */
 @keyframes blink {
